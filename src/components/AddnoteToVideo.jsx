@@ -31,7 +31,6 @@ import { useParams } from "react-router";
         <div>
   <Popover>
   <PopoverTrigger>
-    {/* <Button colorScheme="red">Click Me</Button> */}
     <i class="fa fa-sticky-note"></i>
   </PopoverTrigger>
   <PopoverContent>

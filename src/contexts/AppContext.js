@@ -26,7 +26,8 @@ export function AppProvider({children}){
     
     const addNoteToVideo = (videoId, noteText) =>{
         const noteObj = {
-            id: videoId,
+            id: notes.length+1,
+            videoId: videoId,
             note: noteText
         }
         setNotes((notes)=>[...notes, noteObj])
@@ -69,7 +70,15 @@ export function AppProvider({children}){
     setWatchLater(watchLater.filter((watchItem)=>watchItem._id!==itemId))
    }
 
+   const editTheNote = (itemId) =>{
+     
+   }
+
+   const removeTheNote=(itemId)=>{
+      setNotes(notes.filter((note)=>note.id!==itemId))
+   }
+
     return(
-        <AppContext.Provider value={{allCategories, allVideos, addToWatchLater, addNoteToVideo, note, setNote, notes, addToPlayList, addVideoToPlayList, playList, playlistNames, deleteFromPlayList, removePlayList, watchLater, removeFromWatchList}} >{children}</AppContext.Provider>
+        <AppContext.Provider value={{allCategories, allVideos, addToWatchLater, addNoteToVideo, note, setNote, notes, addToPlayList, addVideoToPlayList, playList, playlistNames, deleteFromPlayList, removePlayList, watchLater, removeFromWatchList, editTheNote, removeTheNote, setNotes}} >{children}</AppContext.Provider>
     )
 }
