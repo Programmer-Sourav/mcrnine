@@ -31,9 +31,8 @@ import {
     
     return(
       <div>
-     <button onClick={onOpen}>
-            <p>Create my own</p>
-          </button> 
+     <i class="fa fa-list" onClick={onOpen}></i> 
+           
     <Modal isOpen={isOpen} onClose={onClose}>
     <ModalOverlay>
       <ModalContent>

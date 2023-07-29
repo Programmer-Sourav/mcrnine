@@ -1,6 +1,17 @@
+import { useNavigate } from "react-router";
+
+
+
 export default function VideoCardDisplay({data}) {
+
+   const navigate = useNavigate()
+
+   const goToVideoDetails = (id) =>{
+       navigate(`/details/${id}`)
+   }
+
     return (
-      <div class="cardtwo">
+      <div class="cardtwo" onClick={()=>{goToVideoDetails(data._id)}}>
         <div class="wishlist-icon">
           <i class="fa fa-heart"></i>
         </div>
