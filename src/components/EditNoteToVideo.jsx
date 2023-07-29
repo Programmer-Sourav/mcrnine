@@ -40,12 +40,12 @@ import { useParams } from "react-router";
         <div>
   <Popover>
   <PopoverTrigger>
-    <i class="fa fa-sticky-note"></i>
+  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
   </PopoverTrigger>
   <PopoverContent>
     <PopoverArrow />
     <PopoverCloseButton />
-    <PopoverHeader>Add Your note</PopoverHeader>
+    <PopoverHeader>Edit Your note</PopoverHeader>
     <PopoverBody>
      <input type="text" style={{border: "1px solid black"}} value={noteEdit} onChange={(e)=>{handleChange(e)}}/>
      <button style={{background: "red", padding: "8px", text: "white"}} onClick={(e)=>{editNoteToTheVideo(id, noteEdit)}}>Update</button>
