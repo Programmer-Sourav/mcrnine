@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from './pages/Home';
 import ViewDetails from './pages/ViewDetails';
 import { Toaster } from 'react-hot-toast';
+import VideosList from './pages/VideosList';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/details/:id' element={<ViewDetails/>}/>
+        <Route path='/categoryvid/:category' element={<VideosList/>}/>
       </Routes>
      
     </div>

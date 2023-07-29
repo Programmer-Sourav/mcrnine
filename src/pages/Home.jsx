@@ -1,17 +1,27 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import AddModal from "../components/ModalSkeleton";
-import ProductCard from "../components/ProductCard";
+import NavigationLeft from "../components/NavigationLeft";
+import { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
+import VideoCard from "../components/VideoCard";
 
 export default function Home(){
+    const { allCategories, allVideos } = useContext(AppContext)
+
     return(
-        <div>
-            <h1>Welcome to Homepage MCRSession-nine. 
-                I am Awesome! :P 
-            </h1>
-            <ChakraProvider>
+        <div className="homedisplay">
+            
+            {/* <ChakraProvider>
             <AddModal/>
             </ChakraProvider>
-            <ProductCard/>
+            <ProductCard/> */}
+            <NavigationLeft/>
+            <h1 className="categorystyle">Categories</h1>
+
+            {/* simply a map over category dataset */}
+            {
+               allCategories.map((category)=><VideoCard data={category}/>)
+            }
         </div>
     )
 }
