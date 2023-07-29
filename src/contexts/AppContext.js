@@ -33,16 +33,38 @@ export function AppProvider({children}){
     }
 
 
-    const addToPlayList = (newPlayList) =>{
+    const addToPlayList = (playlistTitle, description, videoItemToBeAddedInthePlayList) =>{
+        const found = playlistNames.find((playList)=>playList.playlistName===playlistTitle)
+        //check added to check if playlist with same name exists
+        if(!found){
+        const newPlayList = {
+            playlistName: playlistTitle, 
+            playListDesc: description
+        }
         setPlaylistNames((playlistNames)=>[...playlistNames, newPlayList])
-    }
+        }
+       
+       //adding playlistName property to the existing video
+       //const updated = videos.map((video)=>video._id === videoItemToBeAddedInthePlayList.id? {...video, playlistName: playlistTitle } : video)
+        //setAllVideos(updated)
 
+
+        //updating playlistname for the video to make a relation between the playlist name and the video
+       const updatedVideoDetails = {...videoItemToBeAddedInthePlayList, playlistName: playlistTitle}
+       setPlayList((playList)=>[...playList, updatedVideoDetails])
+    }
+   console.log(playlistNames, playList)
     const addVideoToPlayList = (videoItemToBeAddedInthePlayList) =>{
-        setPlayList((playList)=>[...playList, videoItemToBeAddedInthePlayList])
+       
     }
  
+   const  deleteFromPlayList = (playListVideoData) =>{
+         const updated = playList.filter((playListItem)=>playListItem.playlistName!==playListVideoData.playlistName && playListItem._id!==playListVideoData._id)
+         console.log(playListVideoData, updated, playList)
+
+   }
 
     return(
-        <AppContext.Provider value={{allCategories, allVideos, addToWatchLater, addNoteToVideo, note, setNote, notes, addToPlayList, addVideoToPlayList}} >{children}</AppContext.Provider>
+        <AppContext.Provider value={{allCategories, allVideos, addToWatchLater, addNoteToVideo, note, setNote, notes, addToPlayList, addVideoToPlayList, playList, playlistNames, deleteFromPlayList}} >{children}</AppContext.Provider>
     )
 }
