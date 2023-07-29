@@ -34,7 +34,7 @@ export default function VideoCardSingleDisplay({data}) {
          
           
             <ChakraProvider>
-             <AddModal/> 
+             <AddModal data={data}/> 
             </ChakraProvider>
          
             <ChakraProvider>

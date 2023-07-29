@@ -21,12 +21,15 @@ import {
     background
   } from "@chakra-ui/react";
   import {  ChakraProvider } from "@chakra-ui/react";
+import { useContext, useState } from "react";
+import { AppContext } from "../contexts/AppContext";
  
   
-  export default function AddModal() {
+  export default function AddModal({data}) {
     const { isOpen, onOpen, onClose } = useDisclosure();
- 
-  
+    const [playListName, setPlayListName] = useState("")
+    const [description, setDescription] = useState("")
+    const { addToPlayList, addVideoToPlayList } = useContext(AppContext)
    
     
     return(
@@ -36,23 +39,37 @@ import {
     <Modal isOpen={isOpen} onClose={onClose}>
     <ModalOverlay>
       <ModalContent>
-        <ModalHeader>Modal Header</ModalHeader>
+        <ModalHeader>Add To Playlist</ModalHeader>
         <ModalCloseButton />
   
         <ModalBody>
-          <label>Name
+          
           <input type="text"
-            value={{}}
+            value={playListName}
             style={{
               border: "1px solid black",
               height: "40px",
               width: "392px"
             }}
+            placeholder="Enter title of your playlist"
             onChange={(e) => {
-              
+              setPlayListName(e.target.value)
             }}
           />
-          </label>
+         
+          <input type="text"
+            value={description}
+            style={{
+              border: "1px solid black",
+              height: "40px",
+              width: "392px"
+            }}
+            placeholder="Write a description"
+            onChange={(e) => {
+              setDescription(e.target.value)
+            }}
+          />
+          
          
           <button
             style={{
@@ -66,11 +83,11 @@ import {
               borderRadius: "8px"
             }}
            
-          onClick={()=>{onClose()}}
+            onClick={()=>{addToPlayList(playListName, description, data, onClose())}}
             
           >
             {" "}
-            Save{" "}
+            Create A New Playlist{" "}
           </button>
         </ModalBody>
   
