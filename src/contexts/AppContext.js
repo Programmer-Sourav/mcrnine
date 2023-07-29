@@ -20,6 +20,7 @@ export function AppProvider({children}){
 
     const addToWatchLater = (videoItemToBeAdded) =>{
         setWatchLater((watchLater)=>[...watchLater, videoItemToBeAdded]) //adding new video to the watch later list
+
     }
     
     
@@ -44,27 +45,31 @@ export function AppProvider({children}){
         setPlaylistNames((playlistNames)=>[...playlistNames, newPlayList])
         }
        
-       //adding playlistName property to the existing video
-       //const updated = videos.map((video)=>video._id === videoItemToBeAddedInthePlayList.id? {...video, playlistName: playlistTitle } : video)
-        //setAllVideos(updated)
-
-
-        //updating playlistname for the video to make a relation between the playlist name and the video
        const updatedVideoDetails = {...videoItemToBeAddedInthePlayList, playlistName: playlistTitle}
        setPlayList((playList)=>[...playList, updatedVideoDetails])
     }
-   console.log(playlistNames, playList)
+  
     const addVideoToPlayList = (videoItemToBeAddedInthePlayList) =>{
        
     }
  
    const  deleteFromPlayList = (playListVideoData) =>{
-         const updated = playList.filter((playListItem)=>playListItem.playlistName!==playListVideoData.playlistName && playListItem._id!==playListVideoData._id)
-         console.log(playListVideoData, updated, playList)
+       console.log(playListVideoData, playList)
+        const updated = playList.map((playListItem)=>playListItem.playlistName===playListVideoData.playlistName).filter((playListItem)=>playListItem._id!==playListVideoData._id)
+        setPlayList(updated)
 
    }
 
+   const removePlayList = (playListName) =>{
+      const updated = playlistNames.filter((playListItem)=>playListItem.playlistName!==playListName)
+      setPlaylistNames(updated)
+   }
+
+   const removeFromWatchList = (itemId) =>{
+    setWatchLater(watchLater.filter((watchItem)=>watchItem._id!==itemId))
+   }
+
     return(
-        <AppContext.Provider value={{allCategories, allVideos, addToWatchLater, addNoteToVideo, note, setNote, notes, addToPlayList, addVideoToPlayList, playList, playlistNames, deleteFromPlayList}} >{children}</AppContext.Provider>
+        <AppContext.Provider value={{allCategories, allVideos, addToWatchLater, addNoteToVideo, note, setNote, notes, addToPlayList, addVideoToPlayList, playList, playlistNames, deleteFromPlayList, removePlayList, watchLater, removeFromWatchList}} >{children}</AppContext.Provider>
     )
 }

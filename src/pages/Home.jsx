@@ -12,6 +12,8 @@ export default function Home(){
     return(
         <div className="homedisplay">
             <Link to="/playlist">Playlist</Link>
+            <Link to="/watchlater"> Watch Later </Link>
+            <Link to="/explore"> Explore</Link>
             
             {/* <ChakraProvider>
             <AddModal/>

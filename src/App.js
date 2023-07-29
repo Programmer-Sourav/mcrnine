@@ -7,6 +7,8 @@ import { Toaster } from 'react-hot-toast';
 import VideosList from './pages/VideosList';
 import PlaylistsDisplay from './pages/PlaylistsDisplay';
 import Playlist from './pages/PlayList';
+import WatchLater from './pages/WatchLater';
+import Explore from './pages/Explore';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path='/categoryvid/:category' element={<VideosList/>}/>
         <Route path='/playlist' element={<PlaylistsDisplay/>}/>
         <Route path='/playlistdetails/:playlistName' element={<Playlist/>}/>
+        <Route path='/watchlater' element={<WatchLater/>}/>
+        <Route path='/explore' element={<Explore/>}/>
       </Routes>
      
     </div>
