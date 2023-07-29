@@ -31,6 +31,16 @@
     font-size: 24px;
     background: #ffffff;
   }
+
+  .watch-gray {
+  
+    color: gray;
+    
+  }
+
+  .watch-red{
+    color: red
+  }
   .cardtwo-details {
     padding: 20px;
   }

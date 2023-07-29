@@ -9,6 +9,7 @@ import PlaylistsDisplay from './pages/PlaylistsDisplay';
 import Playlist from './pages/PlayList';
 import WatchLater from './pages/WatchLater';
 import Explore from './pages/Explore';
+import ExploreMain from './pages/ExploreMain';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path='/playlist' element={<PlaylistsDisplay/>}/>
         <Route path='/playlistdetails/:playlistName' element={<Playlist/>}/>
         <Route path='/watchlater' element={<WatchLater/>}/>
-        <Route path='/explore' element={<Explore/>}/>
+        <Route path='/explore' element={<ExploreMain/>}/>
       </Routes>
      
     </div>

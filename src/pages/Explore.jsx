@@ -14,13 +14,13 @@ export default function Explore(){
 
     const filteredVideos = allVideos.filter((video)=>video.title.toLowerCase().includes(searchState.toLowerCase()))
     return(
-        <div>
+        <main className="content">
         {
             <div>
             <input type="search" placeholder="Search by video title" value={searchState} onChange={(e)=>{onChangeHandler(e)}}/>
-            {filteredVideos.map((video)=>(<ExploreCardDisplay data = {video}/>))}
+            {filteredVideos.map((video)=>(<li className="displaylist"><ExploreCardDisplay data = {video}/></li>))}
             </div>
         }
-        </div>
+        </main>
     )
 }
