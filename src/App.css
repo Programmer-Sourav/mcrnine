@@ -31,10 +31,16 @@
 }
 .homedisplay{
   display: flex;
+  
 }
+
 .categorystyle{
   margin: 8px;
   padding: 8px;
+}
+
+.displaylist{
+  display: inline-block;
 }
 
 @keyframes App-logo-spin {

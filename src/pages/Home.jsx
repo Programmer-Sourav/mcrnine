@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AppContext } from "../contexts/AppContext";
 import VideoCard from "../components/VideoCard";
 import { Link } from "react-router-dom";
+import Content from "./Content";
 
 export default function Home(){
     const { allCategories, allVideos } = useContext(AppContext)
@@ -14,18 +15,12 @@ export default function Home(){
             <Link to="/playlist">Playlist</Link>
             <Link to="/watchlater"> Watch Later </Link>
             <Link to="/explore"> Explore</Link>
-            
-            {/* <ChakraProvider>
-            <AddModal/>
-            </ChakraProvider>
-            <ProductCard/> */}
+           
             <NavigationLeft/>
-            <h1 className="categorystyle">Categories</h1>
-
-            {/* simply a map over category dataset */}
-            {
-               allCategories.map((category)=><VideoCard data={category}/>)
-            }
+      <Content />
+    
+            
+           
         </div>
     )
 }

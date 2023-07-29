@@ -27,7 +27,6 @@ import { useParams } from "react-router";
    const noteId = data.id;
    const handleChange = (e) =>{
       setNoteEdit(e.target.value)
-      console.log(e.target.value)
    }
 
 

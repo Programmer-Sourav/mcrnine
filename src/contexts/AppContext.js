@@ -56,9 +56,12 @@ export function AppProvider({children}){
  
    const  deleteFromPlayList = (playListVideoData) =>{
        console.log(playListVideoData, playList)
-        const updated = playList.map((playListItem)=>playListItem.playlistName===playListVideoData.playlistName).filter((playListItem)=>playListItem._id!==playListVideoData._id)
-        setPlayList(updated)
-
+       
+       const foundPlaylist = playList.find((playListItem)=>playListItem.playlistName===playListVideoData.playlistName)
+       
+       const updated = playList.filter((playListItem)=>(playListItem._id!==foundPlaylist._id && playListItem.playlistName===playListVideoData.playlistName))
+       setPlayList(updated) //not working properly
+       
    }
 
    const removePlayList = (playListName) =>{
